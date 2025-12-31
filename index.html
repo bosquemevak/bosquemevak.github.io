@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabañas en Guadalajara | Bosque Mevak - desarrollo Inmobiliario</title>
+    <meta name="description" content="Descubre Bosque Mevak: exclusivas cabañas en Guadalajara. Un proyecto inmobiliario donde la arquitectura moderna y la naturaleza conviven en armonía.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+			<img src="img/bosque-mevak-logo.png" alt="Bosque Mevak" style="height: 80px; width: auto;">
+            <ul class="nav-links">
+                <li><a href="#proyecto">Proyecto</a></li>>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contáctanos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content container">
+            <h1>BOSQUE MEVAK</h1>
+            <h2>Tu espacio, entre el cielo y el bosque.</h2>
+            <h3>Cabañas en armonía con la naturaleza.</h3>
+			<h4>Privacidad · Confort · Arquitectura Moderna</h4>
+			<br><br>
+            <a href="https://wa.me/523330348695" class="cta-button"><b>Contáctanos</b></a>
+        </div>
+    </section>
+	
+	<section class="container-mevak">
+	  <h1 class="main-title">Una nueva forma de <strong>habitar</strong> la naturaleza</h1>
+	  
+	  <p class="intro-text">
+		MEVAK es un <strong>desarrollo inmobiliario</strong> creado para quienes<br>
+		buscan algo <strong>más que una cabaña.</strong><br>
+		Un espacio donde la <strong>arquitectura moderna, la privacidad</strong><br>
+		<strong>y el entorno natural conviven en equilibrio.</strong>
+	  </p>
+	</section>
+
+	<section class="gallery-section">
+	  <div class="gallery-container">
+		<button class="nav-btn" onclick="rotateGallery(-1)">&#10094;</button>
+		
+		<div class="gallery-view" id="gallery-view">
+		  <div class="gallery-item" id="slot-0" onclick="openLightbox(0)"></div>
+		  <div class="gallery-item" id="slot-1" onclick="openLightbox(1)"></div>
+		  <div class="gallery-item" id="slot-2" onclick="openLightbox(2)"></div>
+		</div>
+
+		<button class="nav-btn" onclick="rotateGallery(1)">&#10095;</button>
+	  </div>
+	</section>
+
+	<div id="lightbox" class="lightbox">
+	  <span class="close-btn" onclick="closeLightbox()">&times;</span>
+	  <button class="lb-nav lb-prev" onclick="changeLightboxImage(-1)">&#10094;</button>
+	  <img id="lightbox-img" src="">
+	  <button class="lb-nav lb-next" onclick="changeLightboxImage(1)">&#10095;</button>
+	</div>	
+	<br>
+    <section class="cta-final section-padding text-center">
+        <div class="container">
+            <h2>¿Te gustaría conocer más sobre el proyecto?</h2>
+			<br>
+            <a href="https://wa.me/523330348695" class="cta-button">Habla con nosotros</a>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <h4>BOSQUE MEVAK</h4>
+                <p>Guadalajara, Jalisco, México.</p>
+                <p>Email: <a href="mailto:bosquemevak@gmail.com">bosquemevak@gmail.com</a></p>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/profile.php?id=61585412409053" target="_blank">Facebook</a>
+                <a href="https://www.instagram.com/bosquemevak/" target="_blank">Instagram</a>
+            </div>
+        </div>
+        <p class="text-center copyright">&copy; 2025 Bosque Mevak. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
