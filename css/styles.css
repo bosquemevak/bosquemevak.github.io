@@ -1,0 +1,392 @@
+:root {
+	 --font-main: 'Satoshi', sans-serif;
+	--nav-bg-color: #435752; 
+    --nav-text-color: #D7D6D8; 
+    --white: #ffffff;
+    --primary: #333D32;
+    --secondary: #435752;
+    --accent: #8A8550;
+    --muted: #8B9EA2;
+    --light: #D7D6D8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--primary);
+    line-height: 1.6;
+    background-color: var(--white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 40px 0;
+}
+
+.text-center { text-align: center; }
+
+/* Header */
+header {
+	background-color: var(--nav-bg-color); /* Aplicación del color #435752 */
+    padding: 5px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--white); /* El nombre BOSQUE MEVAK en blanco */
+    font-weight: 900;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+   text-decoration: none;
+    color: var(--nav-text-color); /* Enlaces en gris claro */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--white); /* Cambio a blanco al pasar el mouse */
+}
+
+
+
+/* Hero */
+.hero {
+    height: 75vh;
+    background: linear-gradient(rgba(51, 61, 50, 0.6), rgba(51, 61, 50, 0.6)), 
+                url('../img/hero-bosque-cabanas.webp') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    color: var(--light);
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+
+.hero h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+	font-weight: bold;
+    background-color: var(--light);
+    color: var(--secondary);
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: transform 0.3s, background 0.3s;
+    display: inline-block;
+}
+
+.cta-button:hover {
+
+	background-color: #D7D6D8; /* Color Gris claro de la paleta */
+    color: #333D32; /* Verde oscuro para el texto */
+    transform: translateY(-3px);
+}
+
+/* Estilo base para los botones redondeados (CTA) */
+.cta-button, .btn-primary {
+    display: inline-block;
+    padding: 12px 35px;
+    border-radius: 50px; /* Esto crea el efecto redondeado de las imágenes */
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Variación para "Habla con nosotros" y "Contáctanos" (Fondo gris claro) */
+.btn-round-light {
+    background-color: #D7D6D8; /* Color gris claro de tu paleta */
+    color: #333D32; /* Texto verde oscuro para legibilidad */
+}
+
+/* Ajuste específico para el botón del menú de navegación */
+.nav-links .btn-primary {
+    padding: 8px 25px;
+    background-color: #D7D6D8;
+    color: #333D32 !important;
+}
+
+/* Efecto Hover para mantener la interactividad */
+.cta-button:hover, .btn-primary:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Estilos para el botón tipo "Píldora" (Redondeado total) */
+.btn-pill {
+    display: inline-block;
+    padding: 14px 40px; /* Espaciado interno para dar forma */
+    border-radius: 50px; /* Este valor asegura el redondeado completo */
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+/* Estilo para el botón de la sección Hero (Oliva con texto blanco) */
+.btn-hero {
+    background-color: #8A8550; /* Color Oliva de la paleta */
+    color: #FFFFFF;
+}
+
+/* Estilo para el botón de contacto/WhatsApp (Gris claro con texto oscuro) */
+.btn-whatsapp {
+    background-color: #D7D6D8; /* Color Gris claro de la paleta */
+    color: #333D32; /* Verde oscuro para el texto */
+}
+
+/* Efectos al pasar el mouse */
+.btn-pill:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+}
+
+
+/* Sección 2 */
+.container-mevak {
+  text-align: center;
+  padding: 30px 20px;
+  font-family: Arial, sans-serif;
+  color: #333; 
+}
+
+/* Estilo para el título principal */
+.main-title {
+  font-size: 3rem; /* Tamaño grande para el encabezado */
+  font-weight: 400;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+}
+
+.main-title strong {
+  font-weight: bold;
+}
+
+/* Estilo para el párrafo descriptivo */
+.intro-text {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: #555;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.intro-text strong {
+  font-weight: 700;
+  color: #222;
+}
+
+/* Grid layout para galería*/
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.bg-light { background-color: var(--light); }
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background: var(--white);
+    padding: 40px;
+    border-bottom: 4px solid var(--accent);
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.gallery-grid img:hover { opacity: 0.8; }
+
+/* Layout Principal */
+.gallery-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-view {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Solo 3 columnas */
+  gap: 20px;
+  width: 100%;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+
+.item-label {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 10px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: white;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Botones y Lightbox */
+.nav-btn {
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.9);
+  z-index: 1000;
+  justify-content: center; align-items: center;
+}
+
+#lightbox-img { max-width: 80%; max-height: 80%; border-radius: 10px; }
+.lb-nav { position: absolute; background: none; color: white; border: none; font-size: 3rem; cursor: pointer; }
+.lb-prev { left: 5%; } .lb-next { right: 5%; }
+.close-btn { position: absolute; top: 20px; right: 40px; color: white; font-size: 3rem; cursor: pointer; }
+/* Footer */
+footer {
+    background: var(--primary);
+    color: var(--light);
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.footer-social a {
+    color: var(--light);
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    border-top: 1px solid var(--secondary);
+    padding-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .grid-2, .nav-links {
+        flex-direction: column;
+        grid-template-columns: 1fr;
+    }
+	
+    .nav-links { display: none; } /* Idealmente un menú hamburguesa aquí */
+    .hero h1 { font-size: 2.5rem; }
+    .gallery-grid { grid-template-columns: 1fr; }
+	
+	.intro-text {
+    font-size: 1.1rem;
+    max-width: 100%;
+  }
+  
+  /* Quitamos los saltos de línea manuales en móvil para mejor fluidez */
+  .intro-text br { display: none; }
+  
+  .gallery-grid { grid-template-columns: 1fr; }
+  
+  .gallery-item {
+    flex: 0 0 100%; /* Muestra SOLO UNA imagen en el ancho de pantalla */
+  }
+}
