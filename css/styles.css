@@ -16,12 +16,37 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-main);
     color: var(--primary);
     line-height: 1.6;
     background-color: var(--white);
 }
+
+/* Definición de la animación */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplicar a las secciones principales */
+.hero-content, 
+.container-mevak, 
+.gallery-section, 
+.mevak-description {
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
 
 .container {
     max-width: 1200px;
@@ -37,12 +62,10 @@ body {
 
 /* Header */
 header {
-	background-color: var(--nav-bg-color); /* Aplicación del color #435752 */
-    padding: 5px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+background-color: rgba(67, 87, 82, 0.9); /* Versión con transparencia de tu color nav-bg */
+    backdrop-filter: blur(10px); /* Desenfoque del fondo (efecto cristal) */
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 nav {
@@ -148,20 +171,27 @@ nav {
 .cta-button {
 	font-weight: bold;
     background-color: var(--light);
-   color: #333D32 !important;
+    color: #333D32 !important;
     padding: 15px 35px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: 700;
-    transition: transform 0.3s, background 0.3s;
+    /*transition: transform 0.3s, background 0.3s;*/
     display: inline-block;
+	
+	transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important; /* Movimiento más fluido */
+    position: relative;
+    overflow: hidden;
 }
 
 .cta-button:hover {
 
 	background-color: #D7D6D8; /* Color Gris claro de la paleta */
     color: #333D32; /* Verde oscuro para el texto */
-    transform: translateY(-3px);
+    /*transform: translateY(-3px);*/
+	transform: translateY(-5px); /* Elevación suave */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background-color: var(--white) !important;
 }
 
 /* Estilo base para los botones redondeados (CTA) */
@@ -316,7 +346,7 @@ nav {
 
 .gallery-view {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Solo 3 columnas */
+  grid-template-columns: repeat(3, 1fr);  Solo 3 columnas */
   gap: 20px;
   width: 100%;
 }
@@ -327,7 +357,14 @@ nav {
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: opacity 0.3s ease;
+  /*transition: opacity 0.3s ease;*/
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03); /* Zoom muy sutil */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    z-index: 10;
 }
 
 .gallery-item img {
@@ -335,7 +372,13 @@ nav {
   height: 350px;
   object-fit: cover;
   display: block;
+  transition: filter 0.5s ease;
 }
+
+.gallery-item:hover img {
+    filter: brightness(1.1); /* Aclara la imagen suavemente al acercar el mouse */
+}
+
 
 .item-label {
   position: absolute;
