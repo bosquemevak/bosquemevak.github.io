@@ -77,34 +77,68 @@ nav {
 }
 
 
-
 /* Hero */
 .hero {
     height: 75vh;
-    background: linear-gradient(rgba(51, 61, 50, 0.6), rgba(51, 61, 50, 0.6)), 
+    /* Degradado sutil para que el texto resalte sobre la imagen */
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
                 url('../img/hero-bosque-cabanas.webp') center/cover no-repeat;
     display: flex;
     align-items: center;
-    color: var(--light);
+    justify-content: center; /* Centrado total */
+    color: var(--white); /* Texto en blanco puro como la imagen 1 */
     text-align: center;
 }
 
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 5px;
+    font-size: 3.5rem; /* Tamaño más grande para el título principal */
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .hero h2 {
-    font-size: 2rem;
-    margin-bottom: 5px;
+    font-size: 2.2rem; /* Subtítulo principal */
+    font-weight: 500;
+    margin-bottom: 15px;
 }
-
 
 .hero h3 {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
+    font-size: 1.5rem; /* "Cabañas en armonía..." */
+    font-weight: 400;
+    margin-bottom: 10px;
+    opacity: 0.9;
 }
 
+.hero h4 {
+    font-size: 1rem; /* Etiquetas de abajo: Privacidad · Confort... */
+    font-weight: 400;
+    margin-bottom: 35px;
+    opacity: 0.8;
+}
+
+/* Ajuste del botón para que sea tipo "Píldora"*/
+.hero .cta-button {
+    background-color: var(--light);
+    color: var(--primary);
+    padding: 15px 50px;
+    border-radius: 50px; /* Redondeado completo */
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.hero .cta-button:hover {
+    transform: scale(1.05);
+    background-color: var(--white);
+}
 
 .hero p {
     font-size: 1.5rem;
@@ -114,7 +148,7 @@ nav {
 .cta-button {
 	font-weight: bold;
     background-color: var(--light);
-    color: var(--secondary);
+   color: #333D32 !important;
     padding: 15px 35px;
     text-decoration: none;
     border-radius: 5px;
@@ -145,7 +179,7 @@ nav {
 
 /* Variación para "Habla con nosotros" y "Contáctanos" (Fondo gris claro) */
 .btn-round-light {
-    background-color: #D7D6D8; /* Color gris claro de tu paleta */
+    background-color: #D7D6D8; /* Color gris claro de la paleta */
     color: #333D32; /* Texto verde oscuro para legibilidad */
 }
 
@@ -199,7 +233,6 @@ nav {
 .container-mevak {
   text-align: center;
   padding: 30px 20px;
-  font-family: Arial, sans-serif;
   color: #333; 
 }
 
@@ -311,7 +344,6 @@ nav {
   padding: 20px 10px;
   background: linear-gradient(transparent, rgba(0,0,0,0.8));
   color: white;
-  font-family: Arial, sans-serif;
   font-weight: bold;
   text-align: center;
 }
@@ -322,7 +354,7 @@ nav {
   border: none;
   border-radius: 50%;
   width: 50px;
-  height: 50px;
+  height: 40px;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
@@ -340,11 +372,34 @@ nav {
 .lb-nav { position: absolute; background: none; color: white; border: none; font-size: 3rem; cursor: pointer; }
 .lb-prev { left: 5%; } .lb-next { right: 5%; }
 .close-btn { position: absolute; top: 20px; right: 40px; color: white; font-size: 3rem; cursor: pointer; }
-/* Footer */
-footer {
-    background: var(--primary);
-    color: var(--light);
-    padding: 60px 0 20px;
+
+/* Estilos para la descripción debajo de la galería*/
+.mevak-description {
+    padding: 60px 20px;
+    max-width: 900px; /* Para mantener el texto centrado y compacto */
+    margin: 0 auto;
+}
+
+.description-title {
+    font-family: var(--font-main);
+    color: #435752; 
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.description-subtitle {
+    font-size: 1.4rem;
+    color: #555;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.description-subtitle strong {
+    color: #333;
+    font-weight: 700;
 }
 
 .footer-content {
@@ -363,6 +418,131 @@ footer {
     font-size: 0.8rem;
     border-top: 1px solid var(--secondary);
     padding-top: 20px;
+}
+
+/* Estilos atractivos para redes sociales */
+.footer-social {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(215, 214, 216, 0.1); /* Color 'light' con transparencia */
+    color: var(--light);
+    border-radius: 50%; /* Forma circular */
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(215, 214, 216, 0.2);
+}
+
+/* Efectos al pasar el ratón */
+.footer-social a:hover {
+    background-color: var(--light);
+    color: var(--primary); /* El icono cambia al color oscuro del bosque */
+    transform: translateY(-5px); /* Pequeño salto hacia arriba */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Color específico para cada red al hacer hover (opcional) */
+.footer-social a:hover .fa-facebook-f {
+    color: #1877F2; /* Azul oficial de Facebook */
+}
+
+.footer-social a:hover .fa-instagram {
+    color: #E4405F; /* Rosa oficial de Instagram */
+}
+
+.footer-social a:hover .fa-whatsapp {
+    color: #25D366; /* Verde oficial de WhatsApp */
+}
+
+
+/* Corregir color de enlaces en el footer (Email y otros) */
+footer a {
+    color: var(--light) !important; /* Fuerza el color gris claro */
+    text-decoration: none; /* Quita el subrayado azul predeterminado */
+    transition: opacity 0.3s ease;
+}
+
+footer a:hover {
+    opacity: 0.8; /* Efecto visual al pasar el mouse */
+    text-decoration: underline; /* El subrayado solo aparece al interactuar */
+}
+
+footer {
+    background-color: var(--primary); /* El verde oscuro de tu paleta */
+    color: var(--light);
+    padding: 5px 0 10px;
+}
+
+/* Sección de llamada a la acción en el footer */
+.footer-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 35px 20px;
+    gap: 20px; /* Añade un espacio uniforme entre el texto y el botón */
+}
+
+.footer-cta h2 {
+    color: var(--white); /* Asegura que el texto sea blanco en el footer */
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Ajuste opcional para el botón dentro de esta sección */
+.footer-cta .cta-button {
+    margin-top: 10px;
+}
+
+/* Distribución de la barra inferior en una sola línea */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Alinea los elementos a la base */
+    flex-wrap: wrap; /* Permite que se acomoden en móviles */
+    gap: 20px;
+}
+
+.footer-info h4 {
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.footer-info p {
+    font-size: 0.9rem;
+    margin: 2px 0;
+}
+
+/* Redes sociales atractivas (estilo circular) */
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+footer a:not(.cta-button) {
+    color: var(--light) !important;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+footer a:not(.cta-button):hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+.footer-copyright p {
+    font-size: 0.85rem;
+    opacity: 0.8;
 }
 
 /* Responsive */
@@ -389,4 +569,30 @@ footer {
   .gallery-item {
     flex: 0 0 100%; /* Muestra SOLO UNA imagen en el ancho de pantalla */
   }
+  
+  .description-title {
+        font-size: 2rem;
+    }
+    .description-subtitle {
+        font-size: 1.1rem;
+    }
+    .description-subtitle br {
+        display: none; /* Fluidez de texto en pantallas pequeñas */
+    }
+	
+	.footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .footer-social {
+        order: 2;
+    }
+    
+    .footer-copyright {
+        order: 3;
+        width: 100%;
+        border-top: 1px solid rgba(215, 214, 216, 0.1);
+        padding-top: 20px;
+    }
 }
