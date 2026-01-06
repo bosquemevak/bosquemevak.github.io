@@ -427,7 +427,7 @@ nav {
 
 /* Estilos para la descripción debajo de la galería*/
 .mevak-description {
-    padding: 50px 20px;
+    padding: 20px 20px;
     max-width: 900px; /* Para mantener el texto centrado y compacto */
     margin: 0 auto;
 }
@@ -537,7 +537,7 @@ footer {
 
 /* --- Formulario de Contacto --- */
 .contact-section {
-    padding: 80px 20px;
+    padding: 20px 20px;
 }
 
 .contact-container {
