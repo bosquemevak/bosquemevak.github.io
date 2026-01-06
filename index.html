@@ -82,18 +82,18 @@
 			<h2>Solicita más información</h2>
 			<p>Déjanos tus datos y un asesor se pondrá en contacto contigo.</p>
 			
-			<form action="https://formspree.io/f/maqnrwyq" method="POST" class="contact-form">
-				<div class="form-group">
-					<input type="text" name="nombre" placeholder="Nombre completo" required>
-				</div>
-				<div class="form-group">
-					<input type="email" name="email" placeholder="Correo electrónico" required>
-				</div>
-				<div class="form-group">
-					<input type="tel" name="whatsapp" placeholder="Teléfono / WhatsApp" required>
-				</div>
-				
-				<button type="submit" class="btn-pill btn-hero">Enviar Información</button>
+			<form id="contact-form" class="contact-form">
+				  <div class="form-group">
+					<input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
+				  </div>
+				  <div class="form-group">
+					<input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+				  </div>
+				  <div class="form-group">
+					<input type="tel" id="whatsapp" name="whatsapp" placeholder="Teléfono / WhatsApp" required>
+				  </div>
+
+				  <button type="submit" class="btn-pill btn-hero">Enviar Información</button>
 			</form>
 		</div>
 	</section>
@@ -121,10 +121,28 @@
 			</div>
 
 			<div class="footer-copyright">
-				<p>&copy; 2025 Bosque Mevak. Todos los derechos reservados.</p>
+				<p>&copy; 2026 Bosque Mevak. Todos los derechos reservados.</p>
 			</div>
 		</div>
 	</footer>
     <script src="js/script.js"></script>
+	<script>
+	  document.getElementById('contact-form').addEventListener('submit', function(e) {
+		e.preventDefault(); // Evita el envío normal del formulario
+		
+		const nombre = document.getElementById('nombre').value.trim();
+		const email = document.getElementById('email').value.trim();
+		const telefono = document.getElementById('whatsapp').value.trim();
+		
+		const mensaje = `¡Hola! Me interesa información sobre las cabañas Bosque Mevak:%0A%0A` +
+					   `*Nombre:* ${nombre}%0A` +
+					   `*Email:* ${email}%0A` +
+					   `*Teléfono/WhatsApp:* ${telefono}`;
+		
+		const url = `https://wa.me/523330348695?text=${mensaje}`;
+		
+		window.open(url, '_blank');
+	  });
+	</script>
 </body>
 </html>
