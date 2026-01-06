@@ -40,17 +40,34 @@ let currentLightboxIndex = 0;
 
 // Función para renderizar las 3 imágenes actuales
 function renderVisibleImages() {
-    for (let i = 0; i < 3; i++) {
-        const imgIndex = (startIndex + i) % images.length;
-        const slot = document.getElementById(`slot-${i}`);
-        
-        slot.innerHTML = `
-            <img src="${images[imgIndex]}" alt="Cabaña">
-        `;
-        // Actualizamos el evento onclick para que abra la imagen correcta
-        slot.onclick = () => openLightbox(imgIndex);
+    const isMobile = window.innerWidth <= 768;
+    const galleryView = document.getElementById('gallery-view');
+    galleryView.innerHTML = ''; // Limpiamos el contenedor
+
+    if (isMobile) {
+        // En móvil, renderizamos todas las imágenes para permitir el scroll fluido
+        images.forEach((imgSrc, index) => {
+            const div = document.createElement('div');
+            div.className = 'gallery-item';
+            div.innerHTML = `<img src="${imgSrc}" alt="Cabaña Bosque Mevak">`;
+            div.onclick = () => openLightbox(index);
+            galleryView.appendChild(div);
+        });
+    } else {
+        // En escritorio, mantenemos tu lógica original de 3 espacios
+        for (let i = 0; i < 3; i++) {
+            const imgIndex = (startIndex + i) % images.length;
+            const div = document.createElement('div');
+            div.className = 'gallery-item';
+            div.id = `slot-${i}`;
+            div.innerHTML = `<img src="${images[imgIndex]}" alt="Cabaña">`;
+            div.onclick = () => openLightbox(imgIndex);
+            galleryView.appendChild(div);
+        }
     }
 }
+// Escuchar si cambian el tamaño de la pantalla para re-renderizar
+window.addEventListener('resize', renderVisibleImages);
 
 // Mover la galería (atrás o adelante)
 function rotateGallery(step) {
@@ -78,6 +95,30 @@ function changeLightboxImage(step) {
     currentLightboxIndex = (currentLightboxIndex + step + images.length) % images.length;
     document.getElementById('lightbox-img').src = images[currentLightboxIndex];
 }
+
+// Animación de revelación al hacer scroll
+const revealSection = () => {
+    const reveals = document.querySelectorAll('.reveal, section, .gallery-item');
+    
+    reveals.forEach(reveal => {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveal.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < windowHeight - elementVisible) {
+            reveal.classList.add('active');
+        }
+    });
+};
+
+window.addEventListener('scroll', revealSection);
+
+// Ejecutar una vez al cargar para las secciones visibles
+document.addEventListener('DOMContentLoaded', () => {
+    // Aplicar clase reveal a secciones automáticamente
+    document.querySelectorAll('section').forEach(sec => sec.classList.add('reveal'));
+    revealSection();
+});
 
 // Inicializar la vista al cargar
 renderVisibleImages();
