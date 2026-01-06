@@ -61,6 +61,15 @@ body {
 .text-center { text-align: center; }
 
 /* Header */
+
+hr.elegante-sombra {
+  border: none;
+  height: 1px;
+  background: #ccc;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin: 40px auto;
+}
+
 header {
 background-color: rgba(67, 87, 82, 0.9); /* Versión con transparencia de tu color nav-bg */
     backdrop-filter: blur(10px); /* Desenfoque del fondo (efecto cristal) */
@@ -316,9 +325,16 @@ nav {
 }
 
 /* Gallery */
-/* =========================
-   GALERÍA MODERNA RESPONSIVA
-========================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 .gallery-section {
     padding: 60px 20px;
@@ -343,6 +359,7 @@ nav {
 
 /* Tarjeta */
 .gallery-item {
+	background-color: #f4f4f4; /* Fondo neutro por si la foto no llena el cuadro */
     position: relative;
     overflow: hidden;
     border-radius: 16px;
@@ -355,7 +372,7 @@ nav {
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* Cambiado de cover a contain para ver la foto completa */
 }
 
 /* Hover elegante */
@@ -517,18 +534,55 @@ footer {
     padding: 5px 0 10px;
 }
 
+
+/* --- Formulario de Contacto --- */
+.contact-section {
+    padding: 80px 20px;
+}
+
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #f9f9f9;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: var(--accent);
+}
+
+
 /* Sección de llamada a la acción en el footer */
 .footer-cta {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 35px 20px;
+    padding: 10px 20px;
     gap: 20px; /* Añade un espacio uniforme entre el texto y el botón */
 }
 
 .footer-cta h2 {
-    color: var(--white); /* Asegura que el texto sea blanco en el footer */
+    color: var(--secondary); /* Asegura que el texto sea blanco en el footer */
     font-size: 2rem;
     margin: 0;
     font-weight: 500;
@@ -582,6 +636,35 @@ footer a:not(.cta-button):hover {
 
 /* Responsive */
 @media (max-width: 768px) {
+	.gallery-container {
+        position: relative;
+        display: block; /* Cambiamos de flex a block para controlar el scroll */
+    }
+	
+	.gallery-view {
+        display: flex; /* Alinea las imágenes en una fila */
+        overflow-x: auto; /* Permite el scroll horizontal */
+        scroll-snap-type: x mandatory; /* Hace que las imágenes "ajusten" al centro al soltar el dedo */
+        gap: 15px;
+        padding: 20px 0;
+        -webkit-overflow-scrolling: touch; /* Suavidad en iOS */
+    }
+	
+	.gallery-view::-webkit-scrollbar {
+        display: none; /* Oculta la barra de scroll para un look más limpio */
+    }
+
+    .gallery-item {
+        flex: 0 0 85%; /* Cada imagen ocupa el 85% del ancho para dejar ver un poco de la siguiente */
+        scroll-snap-align: center; /* Alineación del imán */
+        aspect-ratio: 1 / 1; /* Cuadradas en móvil para verlas completas */
+    }
+
+    /* Opcional: Ocultar los botones de flecha en móvil ya que usaremos el dedo */
+    .gallery-container .nav-btn {
+        display: none;
+    }
+	
     .grid-2, .nav-links {
         flex-direction: column;
         grid-template-columns: 1fr;
@@ -641,17 +724,16 @@ footer a:not(.cta-button):hover {
 
 /* Móvil */
 @media (max-width: 600px) {
+  .gallery-container {
+        flex-direction: column;
+    }
+    
     .gallery-view {
         grid-template-columns: 1fr;
+        gap: 10px;
     }
 
     .gallery-item {
-        aspect-ratio: 16 / 10; /* Imagen grande y elegante */
-    }
-
-    .nav-btn {
-        width: 42px;
-        height: 42px;
-        font-size: 1.2rem;
+        aspect-ratio: 1 / 1; /* Cuadrado en móvil para mejor visibilidad */
     }
 }
