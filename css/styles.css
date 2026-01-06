@@ -666,12 +666,11 @@ footer a:not(.cta-button):hover {
     }
 	
 	.gallery-view {
-        display: flex; /* Alinea las imágenes en una fila */
-        overflow-x: auto; /* Permite el scroll horizontal */
-        scroll-snap-type: x mandatory; /* Hace que las imágenes "ajusten" al centro al soltar el dedo */
-        gap: 15px;
-        padding: 20px 0;
-        -webkit-overflow-scrolling: touch; /* Suavidad en iOS */
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory; 
+        scroll-behavior: smooth; 
+        -webkit-overflow-scrolling: touch;
     }
 	
 	.gallery-view::-webkit-scrollbar {
@@ -679,8 +678,8 @@ footer a:not(.cta-button):hover {
     }
 
     .gallery-item {
-        flex: 0 0 85%; /* Cada imagen ocupa el 85% del ancho para dejar ver un poco de la siguiente */
-        scroll-snap-align: center; /* Alineación del imán */
+        flex: 0 0 100%; /* Una foto a la vez en móvil para que el scroll sea exacto */
+        scroll-snap-align: center;
         aspect-ratio: 1 / 1; /* Cuadradas en móvil para verlas completas */
     }
 
