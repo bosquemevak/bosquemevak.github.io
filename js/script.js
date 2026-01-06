@@ -67,8 +67,24 @@ function updateDots() {
 
 // 4. Navegación y AutoScroll
 function rotateGallery(step) {
+    const isMobile = window.innerWidth <= 768;
+    const galleryView = document.getElementById('gallery-view');
+    
+    // Calcular el nuevo índice de forma infinita
     startIndex = (startIndex + step + images.length) % images.length;
-    renderVisibleImages();
+
+    if (isMobile && galleryView) {
+        // En móvil: Desplazamos el scroll lateralmente
+        const scrollAmount = startIndex * galleryView.offsetWidth;
+        galleryView.scrollTo({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+        // El evento onscroll de galleryView se encargará de llamar a updateDots()
+    } else {
+        // En escritorio: Volvemos a renderizar las 3 imágenes
+        renderVisibleImages();
+    }
 }
 
 function startAutoScroll() {
