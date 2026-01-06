@@ -425,9 +425,33 @@ nav {
 .lb-prev { left: 5%; } .lb-next { right: 5%; }
 .close-btn { position: absolute; top: 20px; right: 40px; color: white; font-size: 3rem; cursor: pointer; }
 
+/* Contenedor de puntos */
+.gallery-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+/* Estilo de cada punto */
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #D7D6D8; /* Color 'light' de tu paleta */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Punto activo */
+.dot.active {
+    background-color: #8A8550; /* Color 'accent' (Oliva) */
+    transform: scale(1.3);
+}
+
 /* Estilos para la descripción debajo de la galería*/
 .mevak-description {
-    padding: 20px 20px;
+    padding: 15px 20px;
     max-width: 900px; /* Para mantener el texto centrado y compacto */
     margin: 0 auto;
 }
@@ -668,6 +692,10 @@ footer a:not(.cta-button):hover {
     .grid-2, .nav-links {
         flex-direction: column;
         grid-template-columns: 1fr;
+    }
+	
+	.gallery-dots {
+        margin-top: 10px;
     }
 	
     .nav-links { display: none; } /* Idealmente un menú hamburguesa aquí */
