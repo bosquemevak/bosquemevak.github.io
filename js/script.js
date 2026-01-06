@@ -1,51 +1,23 @@
-// Desplazamiento suave para los enlaces internos
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Animación simple al hacer scroll
-const observerOptions = {
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.card, .gallery-grid img').forEach(el => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(20px)";
-    el.style.transition = "all 0.6s ease-out";
-    observer.observe(el);
-});
-
-// Configuración de rutas
+// 1. Configuración de rutas de imágenes
 const images = [];
 for (let i = 1; i <= 11; i++) {
     images.push(`img/galeria${i}.webp`);
 }
 
-let startIndex = 0; // Controla qué imagen aparece en el primer cuadro
+let startIndex = 0; 
 let currentLightboxIndex = 0;
+let autoScrollTimer;
 
-// Función para renderizar las 3 imágenes actuales
+// 2. Función para renderizar la galería (Móvil y Escritorio)
 function renderVisibleImages() {
     const isMobile = window.innerWidth <= 768;
     const galleryView = document.getElementById('gallery-view');
-    galleryView.innerHTML = ''; // Limpiamos el contenedor
+    if (!galleryView) return; // Seguridad por si no encuentra el elemento
+    
+    galleryView.innerHTML = '';
 
     if (isMobile) {
-        // En móvil, renderizamos todas las imágenes para permitir el scroll fluido
+        // En móvil cargamos todas para permitir el scroll con el dedo
         images.forEach((imgSrc, index) => {
             const div = document.createElement('div');
             div.className = 'gallery-item';
@@ -53,34 +25,69 @@ function renderVisibleImages() {
             div.onclick = () => openLightbox(index);
             galleryView.appendChild(div);
         });
+        
+        galleryView.onscroll = () => {
+            const scrollIndex = Math.round(galleryView.scrollLeft / galleryView.offsetWidth);
+            if(startIndex !== scrollIndex) {
+                startIndex = scrollIndex;
+                updateDots();
+            }
+        };
     } else {
-        // En escritorio, mantenemos tu lógica original de 3 espacios
+        // En escritorio mostramos de 3 en 3
         for (let i = 0; i < 3; i++) {
             const imgIndex = (startIndex + i) % images.length;
             const div = document.createElement('div');
             div.className = 'gallery-item';
-            div.id = `slot-${i}`;
             div.innerHTML = `<img src="${images[imgIndex]}" alt="Cabaña">`;
             div.onclick = () => openLightbox(imgIndex);
             galleryView.appendChild(div);
         }
     }
+    updateDots();
 }
-// Escuchar si cambian el tamaño de la pantalla para re-renderizar
-window.addEventListener('resize', renderVisibleImages);
 
-// Mover la galería (atrás o adelante)
+// 3. Función para los puntos indicadores (Dots)
+function updateDots() {
+    const dotsContainer = document.getElementById('gallery-dots');
+    if (!dotsContainer) return;
+    
+    dotsContainer.innerHTML = '';
+    images.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.className = 'dot' + (index === startIndex ? ' active' : '');
+        dot.onclick = () => {
+            startIndex = index;
+            renderVisibleImages();
+            resetAutoScroll();
+        };
+        dotsContainer.appendChild(dot);
+    });
+}
+
+// 4. Navegación y AutoScroll
 function rotateGallery(step) {
-    startIndex += step;
-    
-    // Ajustar límites para que sea infinito
-    if (startIndex >= images.length) startIndex = 0;
-    if (startIndex < 0) startIndex = images.length - 1;
-    
+    startIndex = (startIndex + step + images.length) % images.length;
     renderVisibleImages();
 }
 
-// Funciones del Lightbox
+function startAutoScroll() {
+    stopAutoScroll(); // Limpiar cualquier timer previo
+    autoScrollTimer = setInterval(() => {
+        rotateGallery(1);
+    }, 4000);
+}
+
+function stopAutoScroll() {
+    clearInterval(autoScrollTimer);
+}
+
+function resetAutoScroll() {
+    stopAutoScroll();
+    startAutoScroll();
+}
+
+// 5. Lightbox
 function openLightbox(index) {
     currentLightboxIndex = index;
     document.getElementById('lightbox-img').src = images[currentLightboxIndex];
@@ -96,29 +103,40 @@ function changeLightboxImage(step) {
     document.getElementById('lightbox-img').src = images[currentLightboxIndex];
 }
 
-// Animación de revelación al hacer scroll
+// 6. Animaciones de revelación (Scroll Reveal)
 const revealSection = () => {
-    const reveals = document.querySelectorAll('.reveal, section, .gallery-item');
-    
+    const reveals = document.querySelectorAll('.reveal, section');
     reveals.forEach(reveal => {
         const windowHeight = window.innerHeight;
         const elementTop = reveal.getBoundingClientRect().top;
         const elementVisible = 150;
-        
         if (elementTop < windowHeight - elementVisible) {
             reveal.classList.add('active');
         }
     });
 };
 
-window.addEventListener('scroll', revealSection);
-
-// Ejecutar una vez al cargar para las secciones visibles
+// 7. INICIALIZACIÓN ÚNICA
 document.addEventListener('DOMContentLoaded', () => {
-    // Aplicar clase reveal a secciones automáticamente
+    // Render inicial
+    renderVisibleImages();
+    startAutoScroll();
+
+    // Configurar enlaces suaves
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Configurar animaciones
     document.querySelectorAll('section').forEach(sec => sec.classList.add('reveal'));
     revealSection();
 });
 
-// Inicializar la vista al cargar
-renderVisibleImages();
+// Eventos globales
+window.addEventListener('scroll', revealSection);
+window.addEventListener('resize', renderVisibleImages);
+window.addEventListener('resize', renderVisibleImages);
