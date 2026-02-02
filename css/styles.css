@@ -255,6 +255,104 @@ nav {
     color: #FFFFFF;
 }
 
+/* Botón flotante de WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366; /* Verde oficial WhatsApp */
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* Animación tipo latido */
+@keyframes whatsapp-pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        transform: scale(1.08);
+        box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    text-decoration: none;
+    animation: whatsapp-pulse 2.2s infinite;
+}
+
+
+/* Tooltip WhatsApp */
+.whatsapp-tooltip {
+    position: absolute;
+    right: 75px;
+    background-color: #333;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+/* Flechita del tooltip */
+.whatsapp-tooltip::after {
+    content: "";
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent #333;
+}
+
+/* Mostrar tooltip al hover */
+.whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Hover elegante */
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    background-color: #1ebe5d;
+}
+
 /* Estilo para el botón de contacto/WhatsApp (Gris claro con texto oscuro) */
 .btn-whatsapp {
     background-color: #D7D6D8; /* Color Gris claro de la paleta */
@@ -739,6 +837,15 @@ footer a:not(.cta-button):hover {
         width: 100%;
         border-top: 1px solid rgba(215, 214, 216, 0.1);
         padding-top: 20px;
+    }
+	
+	{
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        font-size: 26px;
+        bottom: 20px;
+        right: 20px;
     }
 }
 
