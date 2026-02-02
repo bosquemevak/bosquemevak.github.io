@@ -28,7 +28,7 @@
 			<h2>Tu espacio, entre el cielo y el bosque.</h2>
 			<h3>Cabañas en armonía con la naturaleza.</h3>
 			<h4>Privacidad · Confort · Arquitectura Moderna</h4>
-			<a href="https://wa.me/523330348695" class="cta-button" target="_blank" rel="noopener noreferrer">Contáctanos</a>
+			<a href="https://wa.me/523331760258" class="cta-button" target="_blank" rel="noopener noreferrer">Contáctanos</a>
 		</div>
 	</section>
 	
@@ -119,7 +119,7 @@
 				<a href="https://www.instagram.com/bosquemevak/" target="_blank" rel="noopener noreferrer">
 					<i class="fab fa-instagram"></i>
 				</a>
-				<a href="https://wa.me/523330348695" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+				<a href="https://wa.me/523331760258" target="_blank" rel="noopener noreferrer" title="WhatsApp">
 					<i class="fab fa-whatsapp"></i>
 				</a>
 			</div>
@@ -138,18 +138,28 @@
 		const email = document.getElementById('email').value.trim();
 		const telefono = document.getElementById('whatsapp').value.trim();
 		
-		const mensaje = `¡Hola! Me interesa información sobre las cabañas Bosque Mevak:%0A%0A` +
+		const mensaje = `Hola, me interesa conocer más sobre Bosque Mevak y sus opciones de cabañas y terrenos.%0A%0A` +
 					   `*Nombre:* ${nombre}%0A` +
 					   `*Email:* ${email}%0A` +
 					   `*Teléfono/WhatsApp:* ${telefono}`;
 		
-		const url = `https://wa.me/523330348695?text=${mensaje}`;
+		const url = `https://wa.me/523331760258?text=${mensaje}`;
 		
 		window.open(url, '_blank');
 	  });
 	</script>
+	<!-- Botón flotante WhatsApp -->
+<!-- Botón flotante WhatsApp -->
+<a href="https://wa.me/523331760258?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20Bosque%20Mevak%20y%20sus%20opciones%20de%20cabañas%20y%20terrenos."
+   class="whatsapp-float"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="WhatsApp">
+
+   <span class="whatsapp-tooltip">¿Hablamos por WhatsApp?</span>
+   <i class="fab fa-whatsapp"></i>
+
+</a>
 </body>
 
 </html>
-
-
