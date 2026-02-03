@@ -576,6 +576,71 @@ nav {
     font-weight: 700;
 }
 
+
+/* ==============================
+   Ajuste tipográfico sección Mevak
+================================ */
+
+.container-mevak {
+    padding: 60px 20px 40px;
+}
+
+/* Título principal */
+.main-title {
+    font-size: 3.2rem;
+    font-weight: 400;
+    margin-bottom: 35px;
+    letter-spacing: -0.5px;
+}
+
+.main-title strong {
+    font-weight: 700;
+}
+
+/* Texto descriptivo */
+.intro-text {
+    font-size: 1.35rem;
+    line-height: 1.6;
+    color: #555;
+    max-width: 980px;
+    margin: 0 auto 70px;
+}
+
+.intro-text strong {
+    font-weight: 700;
+    color: #222;
+}
+
+/* ==============================
+   Sección precio (imagen 2)
+================================ */
+
+.price-section {
+    text-align: center;
+    padding: 50px 20px 20px;
+}
+
+.price-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.price-subtitle {
+    font-size: 1.4rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.price-amount {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--secondary);
+    letter-spacing: 1px;
+}
+
+
 .footer-content {
     display: flex;
     justify-content: space-between;
@@ -799,6 +864,73 @@ footer a:not(.cta-button):hover {
     opacity: 0.8;
 }
 
+
+/* ==============================
+   Sección beneficios / íconos
+================================ */
+
+/* Grid de beneficios */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    margin-top: 60px;
+    align-items: center;
+}
+
+/* Cada ítem */
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    /* Animación de entrada */
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Estado visible al hacer scroll */
+.feature-item.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Imagen del ícono */
+.feature-item img {
+    width: 110px;
+    height: auto;
+    margin-bottom: 20px;
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+/* Hover: micro-animación */
+.feature-item:hover img {
+    transform: scale(1.12);
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+}
+
+/* Texto debajo del ícono */
+.feature-item h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--accent);
+    transition: color 0.35s ease, transform 0.35s ease;
+}
+
+/* Hover en texto */
+.feature-item:hover h3 {
+    color: var(--secondary);
+    transform: translateY(-3px);
+}
+
+/* Entrada escalonada */
+.feature-item:nth-child(1) { transition-delay: 0.1s; }
+.feature-item:nth-child(2) { transition-delay: 0.25s; }
+.feature-item:nth-child(3) { transition-delay: 0.4s; }
+.feature-item:nth-child(4) { transition-delay: 0.55s; }
+
 /* Responsive */
 @media (max-width: 768px) {
 	.gallery-container {
@@ -845,6 +977,26 @@ footer a:not(.cta-button):hover {
 	.intro-text {
     font-size: 1.1rem;
     max-width: 100%;
+	
+	.main-title {
+        font-size: 2.2rem;
+    }
+
+    .intro-text {
+        font-size: 1.1rem;
+    }
+
+    .intro-text br {
+        display: none;
+    }
+
+    .price-title {
+        font-size: 2.2rem;
+    }
+
+    .price-amount {
+        font-size: 2.4rem;
+    }
   }
   
   /* Quitamos los saltos de línea manuales en móvil para mejor fluidez */
@@ -916,6 +1068,11 @@ footer a:not(.cta-button):hover {
 }
 
 @media (max-width: 900px) {
+	.features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+	
     .contact-grid {
         grid-template-columns: 1fr;
     }
@@ -926,5 +1083,16 @@ footer a:not(.cta-button):hover {
 
     .map-embed {
         min-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .feature-item img {
+        width: 90px;
     }
 }
