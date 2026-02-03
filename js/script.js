@@ -152,7 +152,27 @@ document.addEventListener('DOMContentLoaded', () => {
     revealSection();
 });
 
+
+
 // Eventos globales
 window.addEventListener('scroll', revealSection);
 window.addEventListener('resize', renderVisibleImages);
 window.addEventListener('resize', renderVisibleImages);
+document.addEventListener("DOMContentLoaded", function () {
+    const items = document.querySelectorAll(".feature-item");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        },
+        {
+            threshold: 0.3
+        }
+    );
+
+    items.forEach((item) => observer.observe(item));
+});
