@@ -71,10 +71,13 @@ hr.elegante-sombra {
 }
 
 header {
-background-color: rgba(67, 87, 82, 0.9); /* Versión con transparencia de tu color nav-bg */
-    backdrop-filter: blur(10px); /* Desenfoque del fondo (efecto cristal) */
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 4;
+	padding: 30px 80px;
+	background: transparent;
 }
 
 nav {
@@ -109,52 +112,202 @@ nav {
 }
 
 
-/* Hero */
-.hero {
-    height: 75vh;
-    /* Degradado sutil para que el texto resalte sobre la imagen */
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url('../img/hero-bosque-cabanas.webp') center/cover no-repeat;
+/* =============================
+   HEADER
+============================= */
+
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 30px 50px;
+	padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.header-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center; /* Centrado total */
-    color: var(--white); /* Texto en blanco puro como la imagen 1 */
-    text-align: center;
+}
+
+.logo {
+	height: 60px; /* tamaño correcto como imagen 2 */
+    width: auto;
+}
+
+.logo img {
+      height: 68px;
+}
+
+.nav a {
+    margin-left: 35px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1rem;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.nav a:hover {
+    opacity: 0.8;
+}
+
+/* =============================
+   HERO
+============================= */
+
+.hero {
+	position: relative;
+	height: 100vh;
+	min-height: 650px;
+	overflow: hidden;
+	color: #fff;
+}
+
+/* Capa de imágenes */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: heroSlider 18s infinite;
+  z-index: 1;
+}
+
+/* Overlay degradado*/
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.45) 35%,
+    rgba(0, 0, 0, 0.15) 65%,
+    rgba(0, 0, 0, 0.05) 100%
+  ),
+  linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.15) 35%,
+    rgba(0, 0, 0, 0) 60%
+  );
+  z-index: 2;
+}
+
+/* Contenido por encima */
+.hero-content {
+	max-width: 520px;          
+    padding: 0 60px;
+    margin-top: -20px;      
+}
+
+@keyframes heroSlider {
+  0% {
+    background-image: url("hero-bosque-cabanas1.webp");
+    opacity: 1;
+  }
+  33% {
+    background-image: url("hero-bosque-cabanas2.webp");
+    opacity: 1;
+  }
+  66% {
+    background-image: url("hero-bosque-cabanas3.webp");
+    opacity: 1;
+  }
+  100% {
+    background-image: url("hero-bosque-cabanas1.webp");
+    opacity: 1;
+  }
+}
+
+.hero-slides {
+    position: absolute;
+    inset: 0;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.8s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-overlay {
+     background: linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.35)
+    );
 }
 
 .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+    padding: 180px 60px;
+    color: #fff;
+	
+	 max-width: 620px; 
+    margin-top: -40px; 
 }
 
-.hero h1 {
-    font-size: 3.5rem; /* Tamaño más grande para el título principal */
+.hero-content h1 {
+	font-size: 3.1rem;       
+    font-weight: 800;
+    line-height: 1.08;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.45;
+    margin-bottom: 12px;
+}
+
+.hero-subtitle strong {
     font-weight: 700;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
 }
 
-.hero h2 {
-    font-size: 2.2rem; /* Subtítulo principal */
-    font-weight: 500;
-    margin-bottom: 15px;
+.hero-meta {
+    font-size: 0.85rem;
+    margin-bottom: 26px;
+    opacity: 0.85;
 }
 
-.hero h3 {
-    font-size: 1.5rem; /* "Cabañas en armonía..." */
-    font-weight: 400;
-    margin-bottom: 10px;
-    opacity: 0.9;
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 32px;        
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 999px;
+    background-color: #D7D6D8;
+    color: #333D32;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    transition: all 0.35s ease;
+    width: fit-content; 
 }
 
-.hero h4 {
-    font-size: 1rem; /* Etiquetas de abajo: Privacidad · Confort... */
-    font-weight: 400;
-    margin-bottom: 35px;
-    opacity: 0.8;
+.hero-btn:hover {
+    background-color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.35);
 }
+
+
 
 /* Ajuste del botón para que sea tipo "Píldora"*/
 .hero .cta-button {
@@ -172,9 +325,13 @@ nav {
     background-color: var(--white);
 }
 
-.hero p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
+/* Sombra sutil para textos del hero */
+.hero-content h1,
+.hero-content .hero-subtitle,
+.hero-content .hero-meta {
+    text-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.45),
+        0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 .cta-button {
@@ -228,6 +385,8 @@ nav {
     background-color: #D7D6D8;
     color: #333D32 !important;
 }
+
+
 
 /* Efecto Hover para mantener la interactividad */
 .cta-button:hover, .btn-primary:hover {
@@ -933,6 +1092,25 @@ footer a:not(.cta-button):hover {
 
 /* Responsive */
 @media (max-width: 768px) {
+	.hero-content {
+        max-width: 100%;
+        padding: 120px 20px 0;
+        margin-top: 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+	
+	hero-btn {
+        font-size: 0.9rem;
+        padding: 12px 28px;
+    }
+
+    .nav {
+        display: none;
+    }
+	
 	.gallery-container {
         position: relative;
         display: block; /* Cambiamos de flex a block para controlar el scroll */
