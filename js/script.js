@@ -51,40 +51,42 @@ function renderVisibleImages() {
 function updateDots() {
     const dotsContainer = document.getElementById('gallery-dots');
     if (!dotsContainer) return;
-    
+
     dotsContainer.innerHTML = '';
-    images.forEach((_, index) => {
+
+    const totalDots = window.innerWidth <= 768 
+        ? images.length 
+        : images.length;
+
+    for (let i = 0; i < totalDots; i++) {
         const dot = document.createElement('div');
-        dot.className = 'dot' + (index === startIndex ? ' active' : '');
+        dot.className = 'dot' + (i === startIndex ? ' active' : '');
         dot.onclick = () => {
-            startIndex = index;
+            startIndex = i;
             renderVisibleImages();
             resetAutoScroll();
         };
         dotsContainer.appendChild(dot);
-    });
+    }
 }
 
 // 4. Navegación y AutoScroll
 function rotateGallery(step) {
     const isMobile = window.innerWidth <= 768;
     const galleryView = document.getElementById('gallery-view');
-    
-    // Calcular el nuevo índice de forma infinita
+
     startIndex = (startIndex + step + images.length) % images.length;
 
     if (isMobile && galleryView) {
-        // En móvil: Desplazamos el scroll lateralmente
         const scrollAmount = startIndex * galleryView.offsetWidth;
         galleryView.scrollTo({
             left: scrollAmount,
             behavior: 'smooth'
         });
-        // El evento onscroll de galleryView se encargará de llamar a updateDots()
     } else {
-        // En escritorio: Volvemos a renderizar las 3 imágenes
         renderVisibleImages();
     }
+    updateDots();
 }
 
 function startAutoScroll() {
@@ -163,7 +165,6 @@ setInterval(() => {
 
 // Eventos globales
 window.addEventListener('scroll', revealSection);
-window.addEventListener('resize', renderVisibleImages);
 window.addEventListener('resize', renderVisibleImages);
 document.addEventListener("DOMContentLoaded", function () {
     const items = document.querySelectorAll(".feature-item");
