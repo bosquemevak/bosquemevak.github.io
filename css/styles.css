@@ -1029,6 +1029,16 @@ footer a:not(.cta-button):hover {
 ================================ */
 
 /* Grid de beneficios */
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  text-align: center;
+}
+
 .features-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1042,26 +1052,26 @@ footer a:not(.cta-button):hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-
-    /* Animación de entrada */
+    gap: 18px; 
     opacity: 0;
-    transform: scale(0.92) translateY(20px);
+    transform: translateY(20px);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 /* Estado visible al hacer scroll */
 .feature-item.visible {
-    opacity: 1;
-    transform: scale(1) translateY(0);
+     opacity: 1;
+  transform: translateY(0);
 }
 
 /* Imagen del ícono */
 .feature-item img {
     width: 110px;
     height: auto;
-    margin-bottom: 20px;
-    transition: transform 0.35s ease, filter 0.35s ease;
+    border-radius: 24px;
+    background: #faf7f2;
+    padding: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 /* Hover: micro-animación */
@@ -1072,10 +1082,11 @@ footer a:not(.cta-button):hover {
 
 /* Texto debajo del ícono */
 .feature-item h3 {
-    font-size: 1.2rem;
+    font-size: 22px;           
     font-weight: 500;
-    color: var(--accent);
-    transition: color 0.35s ease, transform 0.35s ease;
+    color: #8c7b3f;
+    margin: 0;                 
+    line-height: 1.25;
 }
 
 /* Hover en texto */
@@ -1174,6 +1185,21 @@ footer a:not(.cta-button):hover {
 
     .price-amount {
         font-size: 2.4rem;
+    }
+
+    .features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 16px;   /* menos espacio vertical */
+    padding: 50px 16px;
+    }
+
+    .feature-item img {
+        width: 90px;     /* escala mejor */
+        padding: 14px;
+    }
+
+    .feature-item h3 {
+        font-size: 20px; /* más grande como la imagen 2 */
     }
   }
   
