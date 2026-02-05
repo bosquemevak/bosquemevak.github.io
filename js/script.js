@@ -152,7 +152,14 @@ document.addEventListener('DOMContentLoaded', () => {
     revealSection();
 });
 
+const slides = document.querySelectorAll('.hero-slide');
+let currentSlide = 0;
 
+setInterval(() => {
+  slides[currentSlide].classList.remove('active');
+  currentSlide = (currentSlide + 1) % slides.length;
+  slides[currentSlide].classList.add('active');
+}, 5000); // cambia cada 5 segundos
 
 // Eventos globales
 window.addEventListener('scroll', revealSection);
