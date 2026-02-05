@@ -1,6 +1,6 @@
 // 1. Configuración de rutas de imágenes
 const images = [];
-for (let i = 1; i <= 11; i++) {
+for (let i = 1; i <= 13; i++) {
     images.push(`img/galeria${i}.webp`);
 }
 
