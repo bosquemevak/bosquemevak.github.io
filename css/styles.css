@@ -133,12 +133,14 @@ nav {
 }
 
 .logo {
-	height: 60px; /* tamaño correcto como imagen 2 */
+	height: 60px; 
     width: auto;
 }
 
 .logo img {
-      height: 68px;
+    height: 80px;
+    width: auto;
+    max-width: 100%;
 }
 
 .nav a {
@@ -694,7 +696,7 @@ nav {
 .dot {
     width: 10px;
     height: 10px;
-    background-color: #D7D6D8; /* Color 'light' de tu paleta */
+    background-color: #D7D6D8;
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -774,31 +776,67 @@ nav {
    Sección precio (imagen 2)
 ================================ */
 
-.price-section {
+.pricing-section {
+  padding: 40px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pricing-grid {
+ display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: nowrap;         
+    position: relative;
+}
+
+.price-card {
+    flex: 1;
+    max-width: 380px;
     text-align: center;
-    padding: 50px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px; 
 }
 
-.price-title {
-    font-size: 3rem;
+/* Título */
+.price-card h3 {
+    font-size: 1.6rem;
     font-weight: 700;
+    margin: 0;
     color: var(--primary);
-    margin-bottom: 10px;
+    line-height: 1; 
 }
 
-.price-subtitle {
-    font-size: 1.4rem;
-    color: #555;
-    margin-bottom: 5px;
+/* Texto*/
+.price-label {
+    font-size: 1rem;
+    color: #6d7a78;
+    margin: 0;
+    line-height: 1; 
 }
 
-.price-amount {
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--secondary);
-    letter-spacing: 1px;
+/* Precio */
+.price {
+	margin-top: 3px; 
+    padding: 12px 32px;
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: white;
+    background: var(--secondary);
+    border-radius: 999px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    white-space: nowrap;
 }
 
+/* Línea divisoria desktop */
+.price-divider {
+  width: 2px;
+	height: 170px;  
+    background: #d7d6d8;
+}
 
 .footer-content {
     display: flex;
@@ -875,7 +913,7 @@ footer a:hover {
 }
 
 footer {
-    background-color: var(--primary); /* El verde oscuro de tu paleta */
+    background-color: var(--primary); 
     color: var(--light);
     padding: 5px 0 10px;
 }
@@ -1103,6 +1141,14 @@ footer a:not(.cta-button):hover {
 
 /* Responsive */
 @media (max-width: 768px) {
+	.header {
+		padding: 15px 20px;
+    }
+	
+	.logo img {
+		height: 48px;
+	}
+
 	.hero-content {
         max-width: 100%;
         padding: 120px 20px 0;
@@ -1121,7 +1167,7 @@ footer a:not(.cta-button):hover {
     .nav {
         display: none;
     }
-	
+
 	.gallery-container {
         position: relative;
         display: block; /* Cambiamos de flex a block para controlar el scroll */
@@ -1164,21 +1210,81 @@ footer a:not(.cta-button):hover {
     .gallery-grid { grid-template-columns: 1fr; }
 	
 	.intro-text {
-    font-size: 1.1rem;
-    max-width: 100%;
+        font-size: 1.1rem;
+        line-height: 1.4;
+        max-width: 100%;
+    }
+	
+	/* Ajustar márgenes para evitar exceso de espacio */
+    .container-mevak {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
 	
 	.main-title {
         font-size: 2.2rem;
+        line-height: 1.25; /* Para reducir espacio entre líneas del título */
     }
-
-    .intro-text {
-        font-size: 1.1rem;
+	
+	.container-mevak .intro-text {
+        font-size: 1.0rem; /* Reduce el tamaño del texto descriptivo */
+        line-height: 1.5; /* Ajusta el espacio entre líneas */
+        max-width: 100%;
+        padding: 0 10px; /* Padding lateral para evitar bordes */
     }
-
-    .intro-text br {
+	
+	.intro-text br {
         display: none;
     }
+	
+	.main-title {
+        font-size: 2.2rem;
+		line-height: 1.25; 
+    }
 
+	.pricing-section {
+        padding: 30px 15px;
+    }
+	
+	.pricing-grid {
+        display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 40px;
+    }
+	
+	.price-divider {
+        display: none;
+    }
+	
+	.price-card {
+		gap: 4px;
+    }
+	
+    .price-card h3 {
+       font-size: 2.0rem;
+        font-weight: 700;
+        margin: 0;
+        color: var(--primary);
+        line-height: 1;
+    }
+    
+    .price-label {
+        font-size: 0.85rem;
+        color: #6d7a78;
+        margin: 0;
+        line-height: 1;
+    }
+	 
+    .price {
+		width: 100%;
+		max-width: 100%;
+		padding: 14px 20px;
+		font-size: clamp(1.4rem, 6vw, 2rem);
+		text-align: center;
+		white-space: normal;
+    }
+	
     .price-title {
         font-size: 2.2rem;
     }
@@ -1186,6 +1292,17 @@ footer a:not(.cta-button):hover {
     .price-amount {
         font-size: 2.4rem;
     }
+	
+	.animate-price {
+	  opacity: 1;
+	  transform: translateY(20px);
+	  transition: opacity 0.8s ease, transform 0.8s ease;
+	}
+
+	.animate-price.visible {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
 
     .features {
     grid-template-columns: repeat(2, 1fr);
@@ -1292,11 +1409,12 @@ footer a:not(.cta-button):hover {
 
 @media (max-width: 480px) {
     .features-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 15px;
     }
 
     .feature-item img {
-        width: 90px;
+        width: 85px;
+        padding: 12px;
     }
 }
