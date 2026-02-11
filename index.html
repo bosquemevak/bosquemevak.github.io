@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cabañas en Tecolotlán, Jalisco | Bosque Mevak - Desarrollo Inmobiliario</title>
     <meta name="description" content="Descubre Bosque Mevak: exclusivas cabañas en Tecolotlán, Jalisco. Un proyecto inmobiliario donde la arquitectura moderna y la naturaleza conviven en armonía.">
-    <meta name="msvalidate.01" content="707DE92814EE41E83C77A1AFEE68F2B3" />
-	<link rel="canonical" href="https://www.bosquemevak.com/" />
+    <meta name="msvalidate.01" content="707DE92814EE41E83C77A1AFEE68F2B3"/>
+	<link rel="canonical" href="https://www.bosquemevak.com/"/>
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -15,13 +15,54 @@
 	<link rel="stylesheet" href="css/styles.css">
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateListing",
+  "name": "Bosque Mevak – Desarrollo Inmobiliario",
+  "description": "Desarrollo inmobiliario de cabañas en Tecolotlán, Jalisco. Arquitectura moderna integrada con la naturaleza.",
+  "url": "https://www.bosquemevak.com/",
+  "image": "https://www.bosquemevak.com/img/bosque-mevak-logo.png",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Tecolotlán",
+    "addressRegion": "Jalisco",
+    "addressCountry": "MX"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Cabaña en Bosque Mevak",
+      "price": "4915000",
+      "priceCurrency": "MXN",
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.bosquemevak.com/"
+    },
+    {
+      "@type": "Offer",
+      "name": "Terreno en Bosque Mevak",
+      "price": "1215000",
+      "priceCurrency": "MXN",
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.bosquemevak.com/"
+    }
+  ],
+  "seller": {
+    "@type": "RealEstateAgent",
+    "name": "Bosque Mevak",
+    "url": "https://www.bosquemevak.com/",
+    "telephone": "+52-33-3034-8695"
+  }
+}
+</script>
+
 </head>
 <body>
 
 	<header class="header">
 	  <div class="header-container">
 		<div class="logo">
-		  <img src="img/bosque-mevak-logo-grey.png" alt="Bosque Mevak" style="height: 80px; width: auto;">
+		  <img src="img/bosque-mevak-logo-grey.png" alt="Bosque Mevak">
 		</div>
 
 		<nav class="nav">
@@ -102,10 +143,26 @@
 	  </div>
 	</section>
 
-	<section class="price-section">
-	  <h2 class="price-title">Tu cabaña</h2>
-	  <p class="price-subtitle">desde:</p>
-	  <p class="price-amount">$4,915,000.00</p>
+	<section class="pricing-section container">
+	  <div class="pricing-grid">
+
+		<div class="price-card">
+			<h3>Tu cabaña</h3>
+			<span class="price-label">desde:</span>
+			<div class="price animate-price" data-price="4915000">$4,915,000.00
+			</div>
+		</div>
+
+		<div class="price-divider"></div>
+
+		<div class="price-card">
+			<h3>Tu terreno</h3>
+			<span class="price-label">desde:</span>
+			<div class="price animate-price" data-price="1215000">$1,215,000.00
+			</div>
+		</div>
+
+	  </div>
 	</section>
 
 	<section class="gallery-section" id="galeria">
@@ -121,7 +178,6 @@
 		<button class="nav-btn" onclick="rotateGallery(1)">&#10095;</button>
 	  </div>
 	  <div id="gallery-dots" class="gallery-dots"></div>
-	</section>
 
 	<div id="lightbox" class="lightbox">
 	  <span class="close-btn" onclick="closeLightbox()">&times;</span>
