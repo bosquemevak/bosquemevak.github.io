@@ -1318,7 +1318,7 @@ footer a:not(.cta-button):hover {
     .feature-item h3 {
         font-size: 20px; /* más grande como la imagen 2 */
     }
-  }
+
   
   /* Quitamos los saltos de línea manuales en móvil para mejor fluidez */
   .intro-text br { display: none; }
