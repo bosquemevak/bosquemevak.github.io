@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Página no encontrada | Bosque Mevak</title>
+    <meta name="description" content="La página que buscas no se encuentra. Regresa al inicio de Bosque Mevak y continúa explorando nuestras cabañas y terrenos en Tecolotlán, Jalisco.">
+    
+    <!-- Tipografías modernas y limpias (coherentes con arquitectura moderna) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Paleta de colores inspirada en Bosque Mevak */
+            --color-primary: #2C3E2D;      /* Verde bosque profundo */
+            --color-secondary: #8B9A7C;    /* Verde salvia / naturaleza */
+            --color-accent: #D4A373;       /* Tono madera/bronce */
+            --color-bg: #F9F9F7;           /* Blanco hueso / papel natural */
+            --color-text: #333333;         /* Gris oscuro para lectura */
+            --color-text-light: #666666;   /* Gris medio para textos secundarios */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header minimalista */
+        header {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-decoration: none;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        /* Contenido principal centrado */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 5%;
+        }
+
+        .icon-container {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+            color: var(--color-secondary);
+            opacity: 0.8;
+        }
+
+        .error-code {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 7rem;
+            font-weight: 700;
+            color: var(--color-secondary);
+            opacity: 0.2;
+            line-height: 1;
+            margin-bottom: -1rem;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            max-width: 600px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        /* Botones de acción */
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 2px; /* Bordes ligeramente redondeados, estilo arquitectónico moderno */
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: white;
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--color-primary);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        /* Footer coherente con el sitio */
+        footer {
+            background-color: var(--color-primary);
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 2.5rem 5%;
+            font-size: 0.85rem;
+        }
+
+        .footer-links {
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .copyright {
+            font-weight: 300;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 5rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="https://bosquemevak.com/" class="logo">Bosque Mevak</a>
+    </header>
+
+    <main>
+        <!-- Icono SVG de árbol minimalista -->
+        <svg class="icon-container" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+        </svg>
+
+        <div class="error-code">404</div>
+        <h1>Parece que te has adentrado demasiado en el bosque.</h1>
+        <p>La página que buscas no se encuentra en este entorno natural. Regresa al sendero principal para continuar explorando nuestras cabañas y terrenos.</p>
+        
+        <div class="buttons">
+            <a href="https://bosquemevak.com/" class="btn btn-primary">Volver al inicio</a>
+            <a href="https://wa.me/5213331760258" class="btn btn-secondary">Contáctanos por WhatsApp</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://bosquemevak.com/">Inicio</a>
+            <a href="https://bosquemevak.com/#cabanas">Cabañas</a>
+            <a href="https://bosquemevak.com/#terrenos">Terrenos</a>
+            <a href="https://wa.me/5213331760258">WhatsApp</a>
+        </div>
+        <p class="copyright">&copy; 2026 Bosque Mevak. Todos los derechos reservados. | Tecolotlán, Jalisco.</p>
+    </footer>
+
+</body>
+</html>
